@@ -144,8 +144,8 @@ describe('toArtworkSummary', () => {
     expect(summary.thumbnailUrl).toBe(detail.thumbnailUrl)
     expect(summary.isPublicDomain).toBe(detail.isPublicDomain)
 
-    expect((summary as Record<string, unknown>).highResUrl).toBeUndefined()
-    expect((summary as Record<string, unknown>).medium).toBeUndefined()
-    expect((summary as Record<string, unknown>).tags).toBeUndefined()
+    expect((summary as unknown as Record<string, unknown>).highResUrl).toBeUndefined()
+    expect((summary as unknown as Record<string, unknown>).medium).toBeUndefined()
+    expect((summary as unknown as Record<string, unknown>).tags).toBeUndefined()
   })
 })
