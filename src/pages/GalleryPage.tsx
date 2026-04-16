@@ -1,4 +1,3 @@
-import { useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
@@ -8,29 +7,10 @@ import ArtworkGrid from "../components/ArtworkGrid";
 import LoadMoreTrigger from "../components/LoadMoreTrigger";
 import { useGalleryParams } from "../hooks/useGalleryParams";
 import { useArtworkSearch } from "../hooks/useArtworkSearch";
-import { useDepartments } from "../hooks/useDepartments";
 
 export default function GalleryPage() {
   const navigate = useNavigate();
-  const { filters, setFilters } = useGalleryParams();
-  const { data: departments } = useDepartments();
-
-  // Only set a default department once on first load — never override a deliberate user selection
-  const hasSetDefault = useRef(false);
-  useEffect(() => {
-    if (
-      !hasSetDefault.current &&
-      departments &&
-      departments.length > 0 &&
-      filters.departmentId === null &&
-      filters.q === ""
-    ) {
-      hasSetDefault.current = true;
-      const random =
-        departments[Math.floor(Math.random() * departments.length)];
-      setFilters({ departmentId: random.id });
-    }
-  }, [departments, filters.departmentId, filters.q, setFilters]);
+  const { filters } = useGalleryParams();
 
   const {
     artworks,
