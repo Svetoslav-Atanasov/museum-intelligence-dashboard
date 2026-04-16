@@ -27,7 +27,7 @@ npm run build     # production build
 - Filters: keyword (debounced), department (from API), date range with BCE support (negative years)
 - All filter state persisted in the URL — deep-linkable and refresh-safe
 - Progressive loading: fetches 20 artworks at a time, loads more on scroll via `IntersectionObserver`
-- Random department pre-selected on first visit
+- All Departments selected by default on first visit; filter bar hidden on the detail page
 
 ### Feature B — Artifact Detail View
 - High-resolution image with fallback placeholder
@@ -78,7 +78,7 @@ AI was most valuable for the high-volume, high-accuracy work: wiring TanStack Qu
 | `package.json` | `test` and `test:ui` scripts |
 | **Entry points** | |
 | `src/main.tsx` | `QueryClientProvider`, `ThemeProvider`, `CssBaseline`, `BrowserRouter` |
-| `src/App.tsx` | Routes: `/` → `/gallery`, `/gallery`, `/artwork/:id` |
+| `src/App.tsx` | Routes: `/` → `/gallery`, `/gallery`, `/artwork/:id`; FilterBar shown only on gallery route |
 | **Types & API** | |
 | `src/types/artwork.ts` | Raw API shapes + normalized `ArtworkSummary`, `ArtworkDetail`, `GalleryFilters` |
 | `src/api/client.ts` | Base `apiGet` fetch wrapper with `ApiError` |
@@ -101,7 +101,7 @@ AI was most valuable for the high-volume, high-accuracy work: wiring TanStack Qu
 | `src/components/detail/ArtworkMetadata.tsx` | Medium, dimensions, credit line table + tags chips — nulls silently omitted |
 | `src/components/detail/RelatedWorksRow.tsx` | Horizontal scroll row of related `ArtworkCard`s with skeleton loading |
 | **Pages** | |
-| `src/pages/GalleryPage.tsx` | Live search, random default department, result count, error state |
+| `src/pages/GalleryPage.tsx` | Live search, all departments shown by default, result count, error state |
 | `src/pages/ArtworkDetailPage.tsx` | Skeleton load, error alert, wires Hero + Metadata + RelatedWorks |
 | **Tests** | |
 | `src/tests/setup.ts` | Imports `@testing-library/jest-dom` matchers |

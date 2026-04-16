@@ -24,7 +24,7 @@ export default function FilterBar() {
       if (keywordInput !== filters.q) setFilters({ q: keywordInput })
     }, 300)
     return () => clearTimeout(timer)
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [keywordInput])
 
   return (

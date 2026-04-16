@@ -1,8 +1,8 @@
-import { Routes, Route, Navigate } from 'react-router-dom'
-import Header from './components/layout/Header'
-import FilterBar from './components/FilterBar'
-import GalleryPage from './pages/GalleryPage'
-import ArtworkDetailPage from './pages/ArtworkDetailPage'
+import { Routes, Route, Navigate } from "react-router-dom";
+import Header from "./components/layout/Header";
+import FilterBar from "./components/FilterBar";
+import GalleryPage from "./pages/GalleryPage";
+import ArtworkDetailPage from "./pages/ArtworkDetailPage";
 
 function App() {
   return (
@@ -15,7 +15,7 @@ function App() {
         <Route path="/artwork/:id" element={<ArtworkDetailPage />} />
       </Routes>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
